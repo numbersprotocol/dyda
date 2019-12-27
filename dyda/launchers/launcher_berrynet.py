@@ -7,7 +7,7 @@ from os.path import join as pjoin
 import cv2
 
 from dyda_utils import tools
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components import binary_array_reader
 from dyda.components import frame_reader
 from dyda.pipelines import pipeline as dt42pl

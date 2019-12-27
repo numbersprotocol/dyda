@@ -3,7 +3,7 @@ from dyda_utils import lab_tools
 from dyda_utils import image
 from dyda.components.yolo_detector import DetectorYOLO
 from dyda.components.detector import FaceDetector
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestDetectorYOLO(unittest.TestCase):

@@ -2,7 +2,7 @@ import unittest
 import os
 from dyda_utils import lab_tools
 from dyda.components.frame_reader import FrameReader
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestFrameReader(unittest.TestCase):

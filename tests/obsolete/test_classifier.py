@@ -6,7 +6,7 @@ from dyda.components.classifier import ClassifierInceptionv3
 from dyda.components.classifier import ClassifierMobileNet
 from dyda.components.classifier import ClassifierAoiCV
 from dyda.components.classifier import ClassifierAoiCornerAvg
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestClassifierInceptionv3(unittest.TestCase):

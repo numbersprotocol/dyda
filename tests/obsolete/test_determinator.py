@@ -8,7 +8,7 @@ from dyda.components.determinator import DeterminatorParkingLotStatus
 from dyda.components.determinator import DeterminatorConfidenceThreshold
 from dyda.components.determinator import DeterminatorTargetLabel
 from dyda.components.determinator import DeterminatorCharacter
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestDeterminatorByRoi(unittest.TestCase):

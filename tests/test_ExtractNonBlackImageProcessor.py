@@ -3,7 +3,7 @@ import unittest
 from dyda_utils import tools
 from dyda_utils import tinycv
 from dyda_utils import lab_tools
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components.image_processor import ExtractNonBlackImageProcessor
 
 input_data = cv2.imread('/home/shared/DT42/test_data/test_ExtractNonBlackImageProcessor/input.jpg')

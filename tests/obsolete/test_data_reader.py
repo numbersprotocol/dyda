@@ -9,7 +9,7 @@ from dyda_utils import pandas_data
 from dyda.components.data_reader import JsonReaderFix
 from dyda.components.data_reader import Video2FrameReader
 from dyda.components.data_reader import CsvDataReader
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestJsonReaderFix(unittest.TestCase):

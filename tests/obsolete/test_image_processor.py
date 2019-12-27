@@ -4,7 +4,7 @@ import numpy as np
 from dyda_utils import tools
 from dyda_utils import tinycv
 from dyda_utils import lab_tools
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components.image_processor import BGR2RGBImageProcessor
 from dyda.components.face_recognizer import FaceEncodingImageProcessor
 

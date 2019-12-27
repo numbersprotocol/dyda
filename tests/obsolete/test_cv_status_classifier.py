@@ -5,7 +5,7 @@ from dyda_utils import data
 from dyda_utils import tools
 from dyda_utils import lab_tools
 from dyda.components.cv_status_classifier import ClassifierSimpleCV
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestClassifierSimpleCV(unittest.TestCase):

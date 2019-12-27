@@ -7,7 +7,7 @@ from dyda_utils import pandas_data
 from dyda.components.data_analyzer import UncertaintyAnalyzerSimple
 from dyda.components.data_analyzer import StatAnalyzer
 from dyda.components.face_recognizer import FaceMatchAnalyzer
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestUncertaintyAnalyzerSimple(unittest.TestCase):

@@ -6,7 +6,7 @@ from dyda_utils import data
 from dyda_utils import tools
 from dyda_utils import image
 from dyda.core import data_converter_base
-from dt42lab.utility import dict_comparator as dict_tools
+from dyda_utils import dict_comparator as dict_tools
 from dyda.components import relabeler
 
 

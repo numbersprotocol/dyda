@@ -26,7 +26,7 @@ from dyda_utils import tools
 from dyda_utils import lab_tools
 # step1: from dyda.components.$COMPONENT import $CLASS
 from dyda.components.data_converter import MergeDetectionConverter
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 # step2: class Test$CLASS(unittest.TestCase):
 

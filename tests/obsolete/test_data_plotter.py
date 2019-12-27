@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from dyda_utils import tools
 from dyda_utils import lab_tools
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components.data_plotter import DataFrameHistPlotter
 from dyda.components.data_plotter import LocationBubblePlotter
 warnings.filterwarnings("ignore")

@@ -6,7 +6,7 @@ from dyda_utils import tools
 from dyda_utils import lab_tools
 from dyda_utils import tinycv
 from dyda.components.cv_learner import LearnerSimpleCV
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestLearnerSimpleCV(unittest.TestCase):

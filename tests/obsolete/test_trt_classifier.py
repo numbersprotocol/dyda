@@ -8,7 +8,7 @@ import time
 from dyda_utils import lab_tools
 from dyda_utils import image
 from dyda.components.trt_classifier import ClassifierTensorRT
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 def test_main_process():
 

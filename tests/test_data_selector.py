@@ -5,7 +5,7 @@ import pandas as pd
 from dyda_utils import tools
 from dyda_utils import lab_tools
 from dyda_utils import pandas_data
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components.data_selector import RandomDataSelector
 import json
 

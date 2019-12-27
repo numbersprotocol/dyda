@@ -6,7 +6,7 @@ import requests
 from dyda_utils import image
 from dyda_utils import tools
 from dyda_utils import lab_tools
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 from dyda.components import labelme_data_preprocessor as preprocessor
 
 

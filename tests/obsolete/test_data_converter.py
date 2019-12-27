@@ -5,7 +5,7 @@ from dyda_utils import lab_tools
 from dyda.components.data_converter import IrConverter
 from dyda.components.data_converter import TimeScaleShiftConverter
 from dyda.components.data_converter import PathLabelConverter
-from dt42lab.utility import dict_comparator
+from dyda_utils import dict_comparator
 
 
 class TestPathLabelConverter(unittest.TestCase):
