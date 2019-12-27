@@ -123,7 +123,7 @@ def remove_extension(file_path, return_type='full'):
         name, ext = os.path.splitext(os.path.basename(file_path))
         return name
     else:
-        print('[dt42lab] ERROR: wrong return_type for add_str_before_ext.')
+        print('[dyda_utils] ERROR: wrong return_type for add_str_before_ext.')
 
 
 def add_str_before_ext(file_path, str_to_add, return_type='full'):
@@ -161,7 +161,7 @@ def add_str_before_ext(file_path, str_to_add, return_type='full'):
         )
         return new_name
     else:
-        print('[dt42lab] ERROR: wrong return_type for add_str_before_ext.')
+        print('[dyda_utils] ERROR: wrong return_type for add_str_before_ext.')
 
 
 def path_suffix(path, level=2):
@@ -267,7 +267,7 @@ def read_template(fname, temp_vars):
         template = templateEnv.get_template(fname)
         return template.render(temp_vars)
     except BaseException:
-        print("[dt42lab] ERROR Exception:", sys.exc_info()[0])
+        print("[dyda_utils] ERROR Exception:", sys.exc_info()[0])
         raise
 
 
@@ -302,7 +302,7 @@ def print_time(t0, s):
     @param s: description of this step
 
     """
-    print("[dt42lab] INFO: %.5f seconds to %s" % ((time.time() - t0), s))
+    print("[dyda_utils] INFO: %.5f seconds to %s" % ((time.time() - t0), s))
     return time.time()
 
 
@@ -315,7 +315,7 @@ def ptime(t0=None, s="execute"):
 
     """
     if t0 is None:
-        print("[dt42lab] WARNING: Initial time is not set.")
+        print("[dyda_utils] WARNING: Initial time is not set.")
         t0 = time.time()
     return print_time(t0, s)
 
@@ -330,11 +330,11 @@ def create_timestamp(datetime_obj=None):
         return timestamp
 
     except AttributeError:
-        print("[dt42lab] ERROR: Fail to get strftime of the input object")
+        print("[dyda_utils] ERROR: Fail to get strftime of the input object")
         return None
 
     except:
-        print("[dt42lab] ERROR: Error occor in dyda_utils.create_timestamp")
+        print("[dyda_utils] ERROR: Error occor in dyda_utils.create_timestamp")
         return None
 
 
@@ -369,7 +369,7 @@ def check_exist(path, log=True):
         return True
     else:
         if log:
-            print("[dt42lab] WARNING: %s does not exist" % path)
+            print("[dyda_utils] WARNING: %s does not exist" % path)
         return False
 
 
@@ -403,7 +403,7 @@ def check_dir(dirpath):
        create it if doean't"""
 
     if not os.path.exists(dirpath):
-        print("[dt42lab] INFO: Creating %s" % dirpath)
+        print("[dyda_utils] INFO: Creating %s" % dirpath)
         os.makedirs(dirpath)
 
 
@@ -496,7 +496,7 @@ def check_len(a, b):
     lb = len(b)
     if la == lb:
         return la
-    print("[dt42lab] ERROR: length of a (%i) and b (%i) are different"
+    print("[dyda_utils] ERROR: length of a (%i) and b (%i) are different"
           % (la, lb))
     sys.exit(1)
 
@@ -510,7 +510,7 @@ def conv_to_np(array):
     if is_np(array):
         return array
 
-    print("[dt42lab] WARNING: the type of input array is not correct!")
+    print("[dyda_utils] WARNING: the type of input array is not correct!")
     print(type(array))
     return array
 
@@ -577,7 +577,7 @@ def del_key_from_dic(input_dic, key):
     try:
         del input_dic[key]
     except KeyError:
-        print('[dt42lab] %s is not found in the input dictionary,'
+        print('[dyda_utils] %s is not found in the input dictionary,'
               ' do nothing.' % key)
         pass
 
@@ -813,7 +813,7 @@ def delete_file(fpath):
     if os.path.exists(fpath):
         os.remove(fpath)
     else:
-        print("[dt42lab] The file %s does not exist" % fpath)
+        print("[dyda_utils] The file %s does not exist" % fpath)
 
 
 def gen_numerical_str(number):

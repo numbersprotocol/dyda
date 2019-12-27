@@ -59,7 +59,7 @@ def convert_all_to_png(folder, size=None, keyword=None,
     for img_path in image_paths:
         img = read_img(img_path, log=False)
         if img is None or img.shape[0] == 0:
-            print('dt42lab: Error: %s cannot be read' % img_path)
+            print('dyda_utils: Error: %s cannot be read' % img_path)
             continue
         _fname = os.path.basename(img_path).split('.')
         _fname[-1] = suffix
@@ -335,8 +335,8 @@ def resize_img(img, size=(None, None), force_cpu=True):
         large_size = True
 
     if tools.check_cuda() and large_size:
-        print("[dt42lab] Using GPU to resize")
-        from dt42lab.cv2cuda import gpuwrapper
+        print("[dyda_utils] Using GPU to resize")
+        from dyda_utils.cv2cuda import gpuwrapper
         return gpuwrapper.cudaResizeWrapper(img, size)
     else:
         return cv2.resize(img, size)

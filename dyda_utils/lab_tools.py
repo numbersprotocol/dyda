@@ -1,6 +1,6 @@
 '''
 lab_tools module provides the functions to help users meet spec
-defined by the dt42lab spec and the trainer spec
+defined by the dyda_utils spec and the trainer spec
 '''
 
 from __future__ import absolute_import
@@ -75,16 +75,16 @@ def pull_json_from_gitlab(json_url, save_to="",
                 try:
                     tools.write_json(json_content, fname=save_to)
                 except BaseException:
-                    print('[dt42lab] ERROR: Fail to write output.')
+                    print('[dyda_utils] ERROR: Fail to write output.')
                     raise
             return json_content
 
         except BaseException:
-            print('[dt42lab] ERROR: Fail to get json from gitlab.'
+            print('[dyda_utils] ERROR: Fail to get json from gitlab.'
                   'Check if token is set correctly or if the url is right')
             sys.exit(1)
     else:
-        print('[dt42lab] ERROR: Fail with status_code %i.' % status)
+        print('[dyda_utils] ERROR: Fail with status_code %i.' % status)
         sys.exit(1)
 
 
@@ -105,14 +105,14 @@ def pull_img_from_gitlab(img_url, save_to="",
                 try:
                     cv2.imwrite(save_to, img)
                 except BaseException:
-                    print('[dt42lab] ERROR: Fail to save image.')
+                    print('[dyda_utils] ERROR: Fail to save image.')
                     raise
             return img
         except BaseException:
-            print('[dt42lab] ERROR: Cannot get cv2 array correctly.')
+            print('[dyda_utils] ERROR: Cannot get cv2 array correctly.')
             raise
     else:
-        print('[dt42lab] ERROR: Fail with status_code %i.' % status)
+        print('[dyda_utils] ERROR: Fail with status_code %i.' % status)
         sys.exit(1)
 
 
@@ -131,15 +131,15 @@ def get_gitlab_token(token_path):
                 if isinstance(content['token'], str):
                     return content['token']
                 else:
-                    print('[dt42lab] ERROR: Please check token'
+                    print('[dyda_utils] ERROR: Please check token'
                           ' in %s' % token_path)
                     sys.exit(1)
             else:
-                print('[dt42lab] ERROR: Cannot fine "token"'
+                print('[dyda_utils] ERROR: Cannot fine "token"'
                       ' key in %s' % token_path)
                 sys.exit(1)
         except BaseException:
-            print('[dt42lab] ERROR: %s exists, but cannot'
+            print('[dyda_utils] ERROR: %s exists, but cannot'
                   'be read.' % token_path)
             sys.exit(1)
     else:
@@ -147,7 +147,7 @@ def get_gitlab_token(token_path):
             token = os.environ['CI_JOB_TOKEN']
             return token
         except KeyError:
-            print('[dt42lab] ERROR: No token file or CI_JOB_TOKEN found.')
+            print('[dyda_utils] ERROR: No token file or CI_JOB_TOKEN found.')
             sys.exit(1)
 
 
@@ -171,7 +171,7 @@ def _lab_annotation_dic():
 
 
 def _output_pred(input_path, img_size=[], timestamp=None):
-    """ Output prediction result based on dt42lab spec https://goo.gl/So46Jw
+    """ Output prediction result based on dyda_utils spec https://goo.gl/So46Jw
 
     @param input_path: File path of the input
 
@@ -305,36 +305,36 @@ def check_detection_anno(anno):
     """ Check if it is a valid annotation of detection output """
 
     if not isinstance(anno, list):
-        print("[dt42lab] ERROR: Input annotation is not a list")
+        print("[dyda_utils] ERROR: Input annotation is not a list")
         return False
     if len(anno) != 3:
-        print("[dt42lab] ERROR: Not a valid annotation (len(bb) != 3)")
+        print("[dyda_utils] ERROR: Not a valid annotation (len(bb) != 3)")
         return False
     if not isinstance(anno[0], str):
-        print("[dt42lab] ERROR: The first element of annotation should be"
+        print("[dyda_utils] ERROR: The first element of annotation should be"
               " a string of detection output label")
         return False
     if not isinstance(anno[1], float):
-        print("[dt42lab] ERROR: The second element of annotation should be"
+        print("[dyda_utils] ERROR: The second element of annotation should be"
               " a float of detection output score")
         return False
     bb = anno[2]
     if not isinstance(bb, list):
-        print("[dt42lab] ERROR: Input bounding box is not a list")
+        print("[dyda_utils] ERROR: Input bounding box is not a list")
         return False
     if len(bb) != 4:
-        print("[dt42lab] ERROR: Not a valid bb (len(bb) != 4)")
+        print("[dyda_utils] ERROR: Not a valid bb (len(bb) != 4)")
         return False
     for member in bb:
         if not isinstance(member, int):
-            print("[dt42lab] ERROR: Not a valid bb, all top, bottom, left,"
+            print("[dyda_utils] ERROR: Not a valid bb, all top, bottom, left,"
                   " right should be integers")
             return False
     if bb[1] < bb[0]:
-        print("[dt42lab] ERROR: Not a valid bb (bottom < top)")
+        print("[dyda_utils] ERROR: Not a valid bb (bottom < top)")
         return False
     if bb[3] < bb[2]:
-        print("[dt42lab] ERROR: Not a valid bb (right < left)")
+        print("[dyda_utils] ERROR: Not a valid bb (right < left)")
         return False
 
 
@@ -1415,7 +1415,7 @@ def if_result_match_lab_format(result_to_check, verbose=False, loose=False):
 
     if not isinstance(result_to_check, dict):
         if verbose:
-            print("[dt42lab] ERROR: result is not a dictionary.")
+            print("[dyda_utils] ERROR: result is not a dictionary.")
         return False
     if loose:
         keys = ["annotations", "size"]
@@ -1425,7 +1425,7 @@ def if_result_match_lab_format(result_to_check, verbose=False, loose=False):
         if key not in result_to_check.keys():
             if verbose:
                 print(
-                    "[dt42lab] ERROR: %s is not in the result checked." % key
+                    "[dyda_utils] ERROR: %s is not in the result checked." % key
                 )
             return False
     return True

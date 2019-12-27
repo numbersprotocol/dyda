@@ -46,7 +46,7 @@ class LabToTFRecordConverter(data_converter_base.ConverterBase):
         tfrecord_dir = os.path.join(self.snapshot_folder,
                                     'tfrecords')
         if not os.path.exists(tfrecord_dir):
-            print("[dt42lab] INFO: Creating %s" % tfrecord_dir)
+            print("[dyda_utils] INFO: Creating %s" % tfrecord_dir)
             os.makedirs(tfrecord_dir)
 
         train_dir = self.input_data['train_json_dir']

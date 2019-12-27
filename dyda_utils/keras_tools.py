@@ -243,7 +243,7 @@ def prepare_data(img_loc, width, height, convert_Y=True,
 
     """
 
-    print('[dt42lab] width = %i, height = %i' % (width, height))
+    print('[dyda_utils] width = %i, height = %i' % (width, height))
     if type(img_loc) is list:
         imgs = img_loc
     else:
@@ -258,12 +258,12 @@ def prepare_data(img_loc, width, height, convert_Y=True,
     counter = 0
 
     if rc:
-        print('[dt42lab] Applying random crop to the image')
+        print('[dyda_utils] Applying random crop to the image')
     if sort:
         imgs = sorted(imgs)
     for fimg in imgs:
         if counter % 1000 == 0:
-            print('[dt42lab] Reading images: %i' % counter)
+            print('[dyda_utils] Reading images: %i' % counter)
         _cls_ix = get_class_from_path(fimg)
         if _cls_ix not in classes and create_new_cls:
             classes.append(_cls_ix)
@@ -376,23 +376,23 @@ def prepare_data_train(img_loc, width, height, sort=False,
         scale=scale, classes=classes, sort=sort)
 
     X_train, X_test, Y_train, Y_test = split_samples(X, Y, test_size)
-    print('[dt42lab] X_train shape: ', X_train.shape)
-    print('[dt42lab] Y_train shape: ', Y_train.shape)
-    print('[dt42lab] %i train samples' % X_train.shape[0])
-    print('[dt42lab] %i test samples' % X_test.shape[0])
+    print('[dyda_utils] X_train shape: ', X_train.shape)
+    print('[dyda_utils] Y_train shape: ', Y_train.shape)
+    print('[dyda_utils] %i train samples' % X_train.shape[0])
+    print('[dyda_utils] %i test samples' % X_test.shape[0])
 
     return X_train, X_test, Y_train, Y_test, classes, input_shape
 
 
 def output_model_info(model_path, model_assets={}, note="",
                       model_type="classification", outpath="./model.json"):
-    """ Output model info based on dt42lab spec https://goo.gl/So46Jw
+    """ Output model info based on dyda_utils spec https://goo.gl/So46Jw
 
     @param model_path: File path of the model
 
     Arguments:
 
-    model_assets -- Model assets, details see dt42lab spec
+    model_assets -- Model assets, details see dyda_utils spec
     note         -- Note for the model
     model_type   -- Type of the model based on softmax outputs
                     detection, classification
@@ -403,7 +403,7 @@ def output_model_info(model_path, model_assets={}, note="",
     model_info = {"framework": "keras", "model_type": model_type}
 
     if not tools.check_exist(model_path):
-        print('[dt42lab] ERRPR: %s does not exist' % model_path)
+        print('[dyda_utils] ERRPR: %s does not exist' % model_path)
         return
 
     model_info["model_path"] = model_path
@@ -415,7 +415,7 @@ def output_model_info(model_path, model_assets={}, note="",
 
 
 def _output_pred(input_path):
-    """ Output prediction result based on dt42lab spec https://goo.gl/So46Jw
+    """ Output prediction result based on dyda_utils spec https://goo.gl/So46Jw
 
     @param input_path: File path of the input
 

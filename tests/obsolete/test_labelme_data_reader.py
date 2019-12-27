@@ -72,11 +72,11 @@ class TestLabelmeDataReader(unittest.TestCase):
                     f.write(r.content)
 
             except BaseException:
-                print('[dt42lab] ERROR: Fail to get json from gitlab.'
+                print('[dyda_utils] ERROR: Fail to get json from gitlab.'
                       'Check if token is set correctly or if the url is right')
                 sys.exit(1)
         else:
-            print('[dt42lab] ERROR: Fail with status_code %i.' % status)
+            print('[dyda_utils] ERROR: Fail with status_code %i.' % status)
             sys.exit(1)
 
 

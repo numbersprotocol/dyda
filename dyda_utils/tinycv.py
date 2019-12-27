@@ -1521,7 +1521,7 @@ def crop_bb_img_lab(img, out_file_name, json_file, box_number='all',
     """Crop and save image to square according to bounding boxes.
 
     @param img: path of the image or the img tensor
-    @param json_file: json created by dt42lab.data
+    @param json_file: json created by dyda_utils.data
 
     Keyword parameters:
     box_number       : maximum number of boxes to save
@@ -1594,7 +1594,7 @@ def patch_bb_by_key(json_file, color=[0, 0, 255], line_width=6, keys=['label'],
                     save=False, space=40, output_path=""):
     """Show detection results by patching a rectangle and key value
     to the image.
-    @param json_file: json created by dt42lab.data
+    @param json_file: json created by dyda_utils.data
 
     Keyword parameters:
     color     : color of the bounding box in turns of [B, G, R]
@@ -1650,7 +1650,7 @@ def patch_bb_trainer(img_array, results, color=[0, 0, 255], patch_label=True,
     """Open an image and patch a rectangle to it
 
     @param img: path of the image or the img tensor
-    @param json_file: json created by dt42lab.data
+    @param json_file: json created by dyda_utils.data
 
     Keyword parameters:
     color     : color of the bounding box in turns of [B, G, R]
@@ -1706,7 +1706,7 @@ def patch_bb_img_lab(img, json_file, color=[0, 0, 255], patch_label=True,
     """Open an image and patch a rectangle to it
 
     @param img: path of the image or the img tensor
-    @param json_file: json created by dt42lab.data
+    @param json_file: json created by dyda_utils.data
 
     Keyword parameters:
     color     : color of the bounding box in turns of [B, G, R]

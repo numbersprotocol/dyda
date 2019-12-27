@@ -7,13 +7,13 @@ from setuptools import find_packages
 setup(
     name='dyda',
     version='1.40.2+20190911',
-    description='DT42 dyda library and application',
+    description='Dyda library and application',
     long_description=
         'TBD',
-    url='https://gitlab.com/DT42/galaxy42/dt42-dyda',
-    author='DT42 research team',
-    author_email='research@dt42.io',
-    license='DT42 License',
+    url='https://github.com/numbersprotocol/numbers-dyda',
+    author='Dyda team',
+    author_email='dyda@numbersprotocol.io',
+    license='Numbers License',
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -30,7 +30,6 @@ setup(
     keywords=['wheels'],
     packages=find_packages(exclude=['tests']),
     install_requires=[
-        'dt42lab',
         'matplotlib',
         'numpy',
         'Pillow',

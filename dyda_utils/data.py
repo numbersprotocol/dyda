@@ -311,14 +311,14 @@ def max_rectangle_size(histogram):
 
 
 def _output_pred(input_path):
-    """ Output prediction result based on dt42lab spec https://goo.gl/So46Jw
+    """ Output prediction result based on dyda_utils spec https://goo.gl/So46Jw
 
     @param input_path: File path of the input
 
     """
 
     if not tools.check_exist(input_path):
-        print('[dt42lab] ERRPR: %s does not exist' % input_path)
+        print('[dyda_utils] ERRPR: %s does not exist' % input_path)
         return
 
     input_file = os.path.basename(input_path)

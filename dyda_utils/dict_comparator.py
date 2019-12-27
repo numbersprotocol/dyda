@@ -3,7 +3,7 @@ import json
 import numbers
 import numpy as np
 import argparse
-from dt42lab.core import tools
+from dyda_utils import tools
 from functools import reduce
 import collections
 
@@ -189,7 +189,7 @@ def compare(out_path=None, ref_path=None,
     """ compare two json file """
 
     if ref_path is None:
-        from dt42lab.core import lab_tools
+        from dyda_utils import lab_tools
         ref_url = ('https://gitlab.com/DT42/galaxy42/dt42-lab-lib/uploads/'
                    '5a82dca00757a21c82c681d7c8a8b773/cls_ref.json')
         ref_path = '/tmp/cls_ref.json'
@@ -197,7 +197,7 @@ def compare(out_path=None, ref_path=None,
     else:
         ref_path = ref_path
     if tar_path is None:
-        from dt42lab.core import lab_tools
+        from dyda_utils import lab_tools
         tar_url = ('https://gitlab.com/DT42/galaxy42/dt42-lab-lib/uploads/'
                    '8c755ccdc97494bab294e5706ca738f7/cls_tar.json')
         tar_path = '/tmp/cls_tar.json'

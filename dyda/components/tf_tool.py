@@ -44,7 +44,7 @@ class TFCkptToPbTool(tool_base.ToolBase):
                                  'model')
 
         if not os.path.exists(model_dir):
-            print("[dt42lab] INFO: Creating %s" % model_dir)
+            print("[dyda_utils] INFO: Creating %s" % model_dir)
             os.makedirs(model_dir)
 
         # search and use the last checkpoint in ckpt_dir

@@ -285,7 +285,7 @@ class FaceEncodingImageProcessor(image_processor_base.ImageProcessorBase):
 
     def get_bounding_boxes(self, annotations):
         """ Actually, we have a function annotation_to_boxes()
-            in dt42lab.lab_tools. But here I want the boxes return
+            in dyda_utils.lab_tools. But here I want the boxes return
             like [(top, right, bottom, left)], not [[top, bottom, left,
             right]] which annotation_to_boxes() returns.
         """

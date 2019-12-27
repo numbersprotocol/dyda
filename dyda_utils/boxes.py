@@ -358,7 +358,7 @@ def shrink_boxes(json_data, shrink_perc, shift_to_pad=False, verbose=False):
             new_results["annotations"][ai]["bottom"] = new_b
         else:
             if verbose:
-                print("[dt42lab] new_t >= new_b, no shrink apply to y axis")
+                print("[dyda_utils] new_t >= new_b, no shrink apply to y axis")
         new_l = rect.l + delta_w
         new_r = rect.r - delta_w
         if new_l < new_r:
@@ -366,7 +366,7 @@ def shrink_boxes(json_data, shrink_perc, shift_to_pad=False, verbose=False):
             new_results["annotations"][ai]["right"] = new_r
         else:
             if verbose:
-                print("[dt42lab] new_l >= new_r, no shrink apply to x axis")
+                print("[dyda_utils] new_l >= new_r, no shrink apply to x axis")
     return new_results
 
 

@@ -289,7 +289,7 @@ class LearnerTFDetector(learner_base.LearnerBase):
                                     'training')
 
         if not os.path.exists(training_dir):
-            print("[dt42lab] INFO: Creating %s" % training_dir)
+            print("[dyda_utils] INFO: Creating %s" % training_dir)
             os.makedirs(training_dir)
 
         num_classes = self.input_data['n_classes']
