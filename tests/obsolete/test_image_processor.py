@@ -6,7 +6,7 @@ from dt42lab.core import tinycv
 from dt42lab.core import lab_tools
 from dt42lab.utility import dict_comparator
 from dyda.components.image_processor import BGR2RGBImageProcessor
-from dyda.components.image_processor import FaceEncodingImageProcessor
+from dyda.components.face_recognizer import FaceEncodingImageProcessor
 
 
 # pull test data from gitlab

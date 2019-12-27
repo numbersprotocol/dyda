@@ -6,7 +6,7 @@ from dt42lab.core import lab_tools
 from dt42lab.core import pandas_data
 from dyda.components.data_analyzer import UncertaintyAnalyzerSimple
 from dyda.components.data_analyzer import StatAnalyzer
-from dyda.components.data_analyzer import FaceMatchAnalyzer
+from dyda.components.face_recognizer import FaceMatchAnalyzer
 from dt42lab.utility import dict_comparator
 
 
