@@ -32,12 +32,13 @@ setup(
     install_requires=[
         'matplotlib',
         'numpy',
+        'pandas',
         'Pillow',
         'requests'
     ],
     extras_require={
-        'tf': ['tensorflow==1.1.0'],
-        'tf_gpu': ['tensorflow-gpu==1.1.0'],
+        'tf': ['tensorflow==1.12.0'],
+        'tf_gpu': ['tensorflow-gpu==1.12.0'],
         'opencv': ['opencv-python']
     },
     python_requires='>=3',
