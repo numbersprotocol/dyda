@@ -1,0 +1,54 @@
+{
+    "TrainerBase":
+    {
+        "unpack_single_list": true,
+        "snapshot_with_counter": true
+    },
+    "Video2FrameReader":
+    {
+        "concat": true,
+        "FPS": 30
+    },
+    "FrameReader":
+    {
+    },
+    "DetectorYOLO":
+    {
+        "lib_path": "/usr/lib/libdarknet.so",
+        "net_cfg": "/home/shared/model_zoo/yolo-v2/yolo.cfg",
+        "net_weights": "/home/shared/model_zoo/yolo-v2/yolo.weights",
+        "net_meta": "/home/shared/model_zoo/yolo-v2/coco.data",
+        "thresh": 0.3,
+        "hier_thresh": 0.5,
+        "nms": 0.45
+    },
+    "DeterminatorTargetLabel": {
+        "target": ["car", "person", "bicycle", "motorbike", "bus", "truck"]
+    },
+    "DeterminatorConfidenceThreshold": {
+        "threshold": 0.0
+    },
+    "TrackerByOverlapRatio": {
+        "target": ["person", "car"],
+        "previous_frame_num": 7,
+        "following_frame_num": 0,
+        "nms_overlap_th": 0.3,
+        "tubelet_score_th": 0.7
+    },
+    "PatchImageProcessor":
+    {
+        "patch_color": [0, 0, 255],
+        "patch_line_width": 6,
+        "text_space": 30,
+        "key_to_patch": ["label", "track_id"],
+        "snapshot_with_counter": false
+    },
+    "InputDataAsResultsReader":
+    {
+    },
+    "OutputGeneratorFromMeta":
+    {
+        "ignore_anno_len_diff": true,
+        "discard_extra_anno": true
+    }
+}

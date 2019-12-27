@@ -1,0 +1,21 @@
+{
+    "FrameReader":
+    {
+    },
+    "DetectorYOLO":
+    {
+        "lib_path": "/usr/lib/libdarknet.so",
+        "net_cfg": "/home/shared/model_zoo/Releases/20171022_human_detector/yolo-human-detector.cfg",
+        "net_weights": "/home/shared/model_zoo/Releases/20171022_human_detector/human_detector_20171022.weights",
+        "net_meta": "/home/shared/model_zoo/Releases/20171022_human_detector/human-detector.data",
+        "thresh": 0.1,
+        "hier_thresh": 0.5,
+        "nms": 0.45
+    },
+    "DeterminatorConfidenceThreshold": {
+        "threshold": 0.2
+    },
+    "DeterminatorTargetLabel": {
+        "target": ["car", "person"]
+    }
+}

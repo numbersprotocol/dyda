@@ -1,0 +1,19 @@
+{
+    "DeterminatorTargetLabel": {
+        "target": ["person", "car", "bus", "bicycle", "motorbike"]
+    },
+    "DeterminatorConfidenceThreshold": {                                        
+        "threshold": 0.0                                                    
+    },
+    "DeterminatorSizeThreshold":
+    {
+        "threshold": 0.03
+    },
+    "DeterminatorByRoi":
+    {
+        "top": -1,
+        "bottom": -1,
+        "left": -1,
+        "right": -1
+    }
+}

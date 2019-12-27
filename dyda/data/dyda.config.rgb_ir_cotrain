@@ -1,0 +1,41 @@
+{
+    "FrameReader":
+    {
+    },
+    "DetectorYOLO":
+    {
+        "lib_path": "/usr/lib/libdarknet.so",
+        "net_cfg": "/home/shared/model_zoo/DetectorYOLO/yolo.cfg",
+        "net_weights": "/home/shared/model_zoo/DetectorYOLO/yolo.weights",
+        "net_meta": "/home/shared/model_zoo/DetectorYOLO/coco.data",
+        "thresh": 0.3,
+        "hier_thresh": 0.5,
+        "nms": 0.45
+    },
+    "DeterminatorTargetLabel":
+    {
+        "target": [
+            "person",
+            "dog"
+        ]
+    },
+    "JsonReader": {
+        "folder": "",
+        "extension": ".temp"
+    },
+    "IrConverter": {
+        "height_ori": 8,
+        "width_ori": 8,
+        "height": 480,
+        "width": 480
+    },
+    "TimeScaleShiftConverter": {
+        "time_shift": 1,
+        "points_path": "/home/shared/DT42/test_data/test_rgb_ir_cotrain/points.txt",
+        "height": 480,
+        "width": 480,
+        "folder": "",
+        "size_thre": 30,
+        "extension": ".png"
+    }
+}

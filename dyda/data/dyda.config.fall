@@ -1,0 +1,62 @@
+{
+    "DetectorYOLO": {
+        "lib_path": "/usr/lib/libdarknet.so",
+        "net_cfg": "/home/shared/model_zoo/DetectorYOLO/yolo.cfg",
+        "net_weights": "/home/shared/model_zoo/DetectorYOLO/yolo.weights",
+        "net_meta": "/home/shared/model_zoo/DetectorYOLO/coco.data",
+        "thresh": 0.2,
+        "hier_thresh": 0.5,
+        "nms": 0.4
+    },
+    "FrameSelectorDownsampleFirst": {
+        "interval": 1
+    },
+    "DeterminatorTargetLabel": {
+        "target": "person"
+    },
+    "ClassifierInceptionv3":
+    {
+        "model_file": "/home/shared/model_zoo/inception-v3/fall_20170322/output_graph.pb",
+        "label_file": "/home/shared/model_zoo/inception-v3/fall_20170322/output_labels.txt",
+        "input_height": 299,
+        "input_width": 299,
+        "input_mean": 0,
+        "input_std": 255,
+        "input_layer": "Mul",
+        "convert_to_rgb": true,
+        "output_layer": "final_result",
+        "ftype": "jpg",
+        "gpu_options": {
+            "allow_growth": true,
+            "visible_device_list": "0",
+            "per_process_gpu_memory_fraction": 0.3
+        }
+    },
+    "DeterminatorGroup":
+    {
+        "threshold": 0.5
+    },
+    "DetectionToPatchConverter":
+    {
+        "extend_to_square": true
+    },
+    "DeterminatorSortByAspect":
+    {
+        "mode": "large",
+        "number": 1
+    },
+    "TrackerSimple": {
+        "max_missing_frame": 10,
+        "matching_thre": 300
+    },
+    "TrackerByOverlapRatio": {
+        "target": "person",
+        "previous_frame_num": 2,
+        "following_frame_num": 0,
+        "nms_overlap_th": 0.3,
+        "tubelet_score_th": 0.7
+    },
+    "OutputGeneratorBehavior": {
+        "channel_num": 1
+    }
+}

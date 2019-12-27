@@ -1,0 +1,63 @@
+{
+    "BinaryDataReader":
+    {
+    },
+    "FrameSelectorDownsampleFirst":
+    {
+        "interval": 1
+    },
+    "CalibrateImageProcessor":
+    {
+        "bg_img_path": "/home/shared/DT42/test_data/test_anomaly_classification_cv/bg_img_168x300.jpg"
+    },
+    "CropRoiImageProcessor":
+    {
+        "top": 237,
+        "bottom": 589,
+        "left": 32,
+        "right": 1882
+    },
+    "ResizeImageProcessor":
+    {
+        "width": 300,
+        "height": 168
+    },
+    "LBPImageProcessor":
+    {
+        "subtract": false,
+        "point": 36,
+        "radius": 3
+    },
+    "LearnerGaussianMixtureModel":
+    {
+        "covariance_type": "diag",
+        "n_components": 5,
+        "max_iter": 200,
+        "model_path": "/home/shared/DT42/test_data/test_anomaly_classification_cv/bg_model_lbp_tmp.pickle",
+        "channel_num": 1
+    },
+    "ClassifierGaussianMixtureModel":
+    {
+        "model_path": "/home/shared/DT42/test_data/test_anomaly_classification_cv/bg_model_lbp.pickle",
+        "channel_num": 1,
+        "diff_thre": 300,
+        "temporal_thre": 1,
+        "pixel_thre": 10
+    },
+    "CCLImageProcessor": {
+        "connectivity": 4,
+        "area_min_thre": 0,
+        "area_max_thre": 0.3,
+        "label": "anomaly"
+    },
+    "PatchImageProcessor":
+    {
+        "patch_color": [0, 255, 0],
+        "patch_line_width": 1,
+        "text_space": 1,
+        "key_to_patch": "id"
+    },
+    "OutputGeneratorAnomalyClassification":
+    {
+    }
+}

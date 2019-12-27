@@ -1,0 +1,2 @@
+dyda/pipelines/configs/object_detection_and_tracking_with_lpr.config /etc/dyda/pipelines/configs
+dyda/pipelines/configs/object_detection_and_tracking_with_lpr_debug.config /etc/dyda/pipelines/configs
