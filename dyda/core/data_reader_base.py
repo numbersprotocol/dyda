@@ -41,18 +41,18 @@ class DataReaderBase(dyda_base.TrainerBase):
         metadata = self.get_metadata(metadata_input, encoding=encoding)
         meta_keys = metadata.keys()
         if 'filename' not in meta_keys or 'folder' not in meta_keys:
-            print('[dt42-dyda] Error: Cannot find filename ',
+            print('[dyda] Error: Cannot find filename ',
                   'and folder in metadata.')
             self.terminate_flag = True
         if 'data_type' not in meta_keys:
-            print('[dt42-dyda] Error: Cannot find data_type in metadata.')
+            print('[dyda] Error: Cannot find data_type in metadata.')
             self.terminate_flag = True
 
         fname = os.path.join(metadata['folder'], metadata['filename'])
         dtype = metadata['data_type']
 
         if not os.path.isfile(fname):
-            print('[dt42-dyda] Error: %s is not a file.' % fname)
+            print('[dyda] Error: %s is not a file.' % fname)
             self.terminate_flag = True
 
         self.read_data(fname, dtype)
@@ -83,7 +83,7 @@ class DataReaderBase(dyda_base.TrainerBase):
         elif dtype == 'array':
             opened_data = input_data
         else:
-            print('[dt42-dyda] Error: Type %s is not supported' % dtype)
+            print('[dyda] Error: Type %s is not supported' % dtype)
             self.terminate_flag = True
         self.output_data.append(opened_data)
 
@@ -91,7 +91,7 @@ class DataReaderBase(dyda_base.TrainerBase):
         try:
             img_data = image.read_img(input_data, log=False)
             if img_data is None or img_data.shape[0] == 0:
-                print('[dt42-dyda] Error: Cannot read %s' % input_data)
+                print('[dyda] Error: Cannot read %s' % input_data)
                 self.terminate_flag = True
             return img_data
         except Exception:
@@ -118,7 +118,7 @@ class DataReaderBase(dyda_base.TrainerBase):
                 metadata = data.parse_json(metadata_input, encoding=encoding)
                 return metadata
             except IOError:
-                print('[dt42-dyda] Error: cannot open %s' % metadata_input)
+                print('[dyda] Error: cannot open %s' % metadata_input)
                 self.terminate_flag = True
                 return {}
             except Exception:
