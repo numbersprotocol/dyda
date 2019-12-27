@@ -1,9 +1,9 @@
 import cv2
 import copy
 import numpy as np
-from dt42lab.core import image
-from dt42lab.core import lab_tools
-from dt42lab.core import tinycv
+from dyda_utils import image
+from dyda_utils import lab_tools
+from dyda_utils import tinycv
 from dyda.core import image_processor_base
 from dyda.components import data_converter
 

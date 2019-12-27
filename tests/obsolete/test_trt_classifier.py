@@ -5,8 +5,8 @@ import time
 
 # from pympler import tracker
 
-from dt42lab.core import lab_tools
-from dt42lab.core import image
+from dyda_utils import lab_tools
+from dyda_utils import image
 from dyda.components.trt_classifier import ClassifierTensorRT
 from dt42lab.utility import dict_comparator
 

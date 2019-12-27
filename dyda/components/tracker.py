@@ -2,8 +2,8 @@ import os
 import copy
 import numpy as np
 from dyda.core import tracker_base
-from dt42lab.core import lab_tools
-from dt42lab.core import tools
+from dyda_utils import lab_tools
+from dyda_utils import tools
 
 
 class TrackerSimple(tracker_base.TrackerBase):

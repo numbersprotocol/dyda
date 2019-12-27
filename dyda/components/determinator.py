@@ -7,11 +7,11 @@ import traceback
 import statistics
 import operator
 from scipy.stats import mode
-from dt42lab.core import tinycv
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
-from dt42lab.core import image
-from dt42lab.core import pandas_data
+from dyda_utils import tinycv
+from dyda_utils import tools
+from dyda_utils import lab_tools
+from dyda_utils import image
+from dyda_utils import pandas_data
 from dyda.core import determinator_base
 
 

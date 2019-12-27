@@ -1,5 +1,5 @@
 from dyda.core import dyda_base
-from dt42lab.core import data
+from dyda_utils import data
 
 
 class OutputGeneratorBase(dyda_base.TrainerBase):

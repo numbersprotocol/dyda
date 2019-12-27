@@ -1,6 +1,6 @@
 import unittest
-from dt42lab.core import lab_tools
-from dt42lab.core import tools
+from dyda_utils import lab_tools
+from dyda_utils import tools
 from dyda.components.validator import ClassificationValidator
 from dyda.components.validator import DetectionValidator
 from dt42lab.utility import dict_comparator

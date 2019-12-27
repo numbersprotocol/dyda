@@ -8,8 +8,8 @@ import datetime
 import importlib
 from collections import OrderedDict
 
-from dt42lab.core import tools
-from dt42lab.core.pandas_data import is_pandas_df
+from dyda_utils import tools
+from dyda_utils.pandas_data import is_pandas_df
 
 MODULE_BASE = "dyda.components"
 

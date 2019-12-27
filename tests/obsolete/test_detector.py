@@ -1,6 +1,6 @@
 import unittest
-from dt42lab.core import lab_tools
-from dt42lab.core import image
+from dyda_utils import lab_tools
+from dyda_utils import image
 from dyda.components.yolo_detector import DetectorYOLO
 from dyda.components.detector import FaceDetector
 from dt42lab.utility import dict_comparator

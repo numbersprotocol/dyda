@@ -1,8 +1,8 @@
 import cv2
 import unittest
-from dt42lab.core import tools
-from dt42lab.core import tinycv
-from dt42lab.core import lab_tools
+from dyda_utils import tools
+from dyda_utils import tinycv
+from dyda_utils import lab_tools
 from dt42lab.utility import dict_comparator
 from dyda.components.box_processor import ResizeBoxProcessor
 

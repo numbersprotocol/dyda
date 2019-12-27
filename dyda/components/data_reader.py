@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 import pandas as pd
 from dyda.core import data_reader_base
-from dt42lab.core import lab_tools
-from dt42lab.core import tools
+from dyda_utils import lab_tools
+from dyda_utils import tools
 
 
 class Video2FrameReader(data_reader_base.DataReaderBase):

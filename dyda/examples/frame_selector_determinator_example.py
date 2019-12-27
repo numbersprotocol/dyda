@@ -5,7 +5,7 @@ import sys
 from dyda.components import frame_reader
 from dyda.components import frame_selector
 from dyda.components import determinator
-from dt42lab.core import image
+from dyda_utils import image
 
 
 def main():

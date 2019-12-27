@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from dt42lab.core import tools
-from dt42lab.core import plot
+from dyda_utils import tools
+from dyda_utils import plot
 from dyda.core import data_plotter_base
 plt.switch_backend('Agg')
 warnings.filterwarnings("ignore")

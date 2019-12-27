@@ -1,9 +1,9 @@
 import os
 import unittest
-from dt42lab.core import image
-from dt42lab.core import data
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import image
+from dyda_utils import data
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dyda.components.cv_status_classifier import ClassifierSimpleCV
 from dt42lab.utility import dict_comparator
 

@@ -2,8 +2,8 @@ import pickle
 import copy
 import numpy as np
 from face_recognition import compare_faces, face_locations, face_encodings
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dyda.core import data_analyzer_base
 from dyda.core import detector_base
 from dyda.core import image_processor_base

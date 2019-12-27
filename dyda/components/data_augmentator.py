@@ -1,5 +1,5 @@
 import copy
-from dt42lab.core import tinycv
+from dyda_utils import tinycv
 from dyda.core import data_augmentator_base
 
 

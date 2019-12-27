@@ -1,6 +1,6 @@
 from dyda.components import frame_reader
 from dyda.components import frame_selector
-from dt42lab.core import image
+from dyda_utils import image
 import os
 
 

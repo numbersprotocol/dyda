@@ -2,9 +2,9 @@ import os
 import subprocess
 import tensorflow as tf
 from object_detection.utils import dataset_util
-from dt42lab.core import lab_tools
-from dt42lab.core import image
-from dt42lab.core import tools
+from dyda_utils import lab_tools
+from dyda_utils import image
+from dyda_utils import tools
 from dyda.core import data_converter_base
 
 

@@ -1,6 +1,6 @@
 import unittest
 import os
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.components.frame_reader import FrameReader
 from dt42lab.utility import dict_comparator
 

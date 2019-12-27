@@ -18,7 +18,7 @@ import cv2
 import numpy as np
 
 from berrynet import logger
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from openvino.inference_engine import IENetwork, IEPlugin
 from dyda.core import classifier_base
 

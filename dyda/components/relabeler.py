@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from dt42lab.core import image
+from dyda_utils import image
 from dyda.core import data_converter_base
 from dyda.components import det_drawer
 

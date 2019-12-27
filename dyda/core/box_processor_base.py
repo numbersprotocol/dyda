@@ -1,7 +1,7 @@
 """ Base class of data analyzer """
 import copy
 from dyda.core import dyda_base
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 
 
 class BoxProcessorBase(dyda_base.TrainerBase):

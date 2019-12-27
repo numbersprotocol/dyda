@@ -1,5 +1,5 @@
 from berrynet.engine.movidius_engine import MovidiusMobileNetSSDEngine
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import detector_base
 
 

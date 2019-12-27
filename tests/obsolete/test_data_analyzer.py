@@ -2,8 +2,8 @@ import unittest
 import os
 import numpy as np
 import pandas as pd
-from dt42lab.core import lab_tools
-from dt42lab.core import pandas_data
+from dyda_utils import lab_tools
+from dyda_utils import pandas_data
 from dyda.components.data_analyzer import UncertaintyAnalyzerSimple
 from dyda.components.data_analyzer import StatAnalyzer
 from dyda.components.face_recognizer import FaceMatchAnalyzer

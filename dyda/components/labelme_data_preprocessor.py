@@ -2,11 +2,11 @@ import os
 import sys
 import numpy as np
 from dyda.core import data_reader_base
-from dt42lab.core import tools
-from dt42lab.core import data
-from dt42lab.core import image
-from dt42lab.core import boxes
-from dt42lab.core import tinycv
+from dyda_utils import tools
+from dyda_utils import data
+from dyda_utils import image
+from dyda_utils import boxes
+from dyda_utils import tinycv
 
 
 class LabelMeDataPreProcessor(data_reader_base.DataReaderBase):

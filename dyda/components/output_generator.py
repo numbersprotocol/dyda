@@ -1,7 +1,7 @@
 import os
 import copy
 from dyda.core import output_generator_base
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 
 
 class FullPathGenerator(output_generator_base.OutputGeneratorBase):

@@ -3,7 +3,7 @@ import cv2
 import copy
 import numpy as np
 import tensorflow as tf
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import tf_detector_base
 
 

@@ -2,9 +2,9 @@ import os
 import sys
 import cv2
 import numpy as np
-from dt42lab.core import data
-from dt42lab.core import tools
-from dt42lab.core import image
+from dyda_utils import data
+from dyda_utils import tools
+from dyda_utils import image
 from dyda.core import data_converter_base
 from dt42lab.utility import dict_comparator as dict_tools
 from dyda.components import relabeler

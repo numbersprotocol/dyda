@@ -1,7 +1,7 @@
 import math
 import copy
 import pandas as pd
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import data_analyzer_base
 
 

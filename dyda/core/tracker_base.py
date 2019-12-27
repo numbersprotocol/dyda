@@ -1,5 +1,5 @@
 import copy
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import dyda_base
 
 

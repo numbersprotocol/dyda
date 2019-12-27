@@ -1,11 +1,11 @@
 
 import copy
 import numpy as np
-from dt42lab.core import image
-from dt42lab.core import tools
-from dt42lab.core import tinycv
-from dt42lab.core import lab_tools
-from dt42lab.core import boxes
+from dyda_utils import image
+from dyda_utils import tools
+from dyda_utils import tinycv
+from dyda_utils import lab_tools
+from dyda_utils import boxes
 from dyda.core import box_processor_base
 from scipy.ndimage.interpolation import map_coordinates
 

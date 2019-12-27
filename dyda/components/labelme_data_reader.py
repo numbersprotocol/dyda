@@ -4,8 +4,8 @@ import shutil
 import numpy as np
 import xml.etree.ElementTree as ET
 from dyda.core import data_reader_base
-from dt42lab.core import tools
-from dt42lab.core import data
+from dyda_utils import tools
+from dyda_utils import data
 
 import json
 def restore_ordered_json(json_path):

@@ -10,10 +10,10 @@ import numpy as np
 import tensorflow as tf
 from sklearn import svm
 from skimage import measure
-from dt42lab.core import image
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
-from dt42lab.core import tinycv
+from dyda_utils import image
+from dyda_utils import tools
+from dyda_utils import lab_tools
+from dyda_utils import tinycv
 from dyda.core import classifier_base
 
 

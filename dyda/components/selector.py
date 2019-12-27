@@ -1,5 +1,5 @@
 import copy
-from dt42lab.core import image
+from dyda_utils import image
 from dyda.components import determinator
 from dyda.core import image_processor_base
 

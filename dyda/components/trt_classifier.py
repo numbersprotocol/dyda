@@ -16,7 +16,7 @@ import tensorrt as trt
 from PIL import Image
 
 from logzero import logger
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import classifier_base
 
 TRT_LOGGER = trt.Logger(trt.Logger.WARNING)

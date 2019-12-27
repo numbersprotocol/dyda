@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dyda.components.data_converter import IrConverter
 from dyda.components.data_converter import TimeScaleShiftConverter
 from dyda.components.data_converter import PathLabelConverter

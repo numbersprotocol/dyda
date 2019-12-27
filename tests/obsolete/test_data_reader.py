@@ -2,10 +2,10 @@ import os
 import unittest
 import numpy as np
 import pandas as pd
-from dt42lab.core import data
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
-from dt42lab.core import pandas_data
+from dyda_utils import data
+from dyda_utils import tools
+from dyda_utils import lab_tools
+from dyda_utils import pandas_data
 from dyda.components.data_reader import JsonReaderFix
 from dyda.components.data_reader import Video2FrameReader
 from dyda.components.data_reader import CsvDataReader

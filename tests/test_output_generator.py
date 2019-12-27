@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dt42lab.utility import dict_comparator
 from dyda.components.output_generator import OutputGeneratorCombineDetCla
 

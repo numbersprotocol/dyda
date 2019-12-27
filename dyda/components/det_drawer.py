@@ -1,6 +1,6 @@
 import cv2
 from dyda.core import drawer_base
-from dt42lab.core import tinycv
+from dyda_utils import tinycv
 
 class DetDrawer(drawer_base.DrawerBase):
     """docstring for DetDrawer"""

@@ -1,7 +1,7 @@
 import unittest
-from dt42lab.core import image
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import image
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dyda.components.classifier import ClassifierInceptionv3
 from dyda.components.classifier import ClassifierMobileNet
 from dyda.components.classifier import ClassifierAoiCV

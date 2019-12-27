@@ -2,8 +2,8 @@ import os
 import cv2
 import pickle
 from sklearn.mixture import GaussianMixture
-from dt42lab.core import tools
-from dt42lab.core import image
+from dyda_utils import tools
+from dyda_utils import image
 from dyda.core import learner_base
 
 

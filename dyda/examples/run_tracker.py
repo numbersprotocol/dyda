@@ -4,8 +4,8 @@ import argparse
 import os
 import importlib
 
-from dt42lab.core import data
-from dt42lab.core import tools
+from dyda_utils import data
+from dyda_utils import tools
 from dyda.components import label_image
 
 

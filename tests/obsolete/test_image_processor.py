@@ -1,9 +1,9 @@
 import cv2
 import unittest
 import numpy as np
-from dt42lab.core import tools
-from dt42lab.core import tinycv
-from dt42lab.core import lab_tools
+from dyda_utils import tools
+from dyda_utils import tinycv
+from dyda_utils import lab_tools
 from dt42lab.utility import dict_comparator
 from dyda.components.image_processor import BGR2RGBImageProcessor
 from dyda.components.face_recognizer import FaceEncodingImageProcessor

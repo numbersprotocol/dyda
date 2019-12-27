@@ -1,6 +1,6 @@
 import unittest
-from dt42lab.core import image
-from dt42lab.core import payload
+from dyda_utils import image
+from dyda_utils import payload
 from dyda.components.image_processor import PatchSysInfoImageProcessor
 
 

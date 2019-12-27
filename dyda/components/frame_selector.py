@@ -2,7 +2,7 @@ import cv2
 import copy
 import numpy as np
 from skimage import measure
-from dt42lab.core import image
+from dyda_utils import image
 from dyda.core import data_selector_base
 
 

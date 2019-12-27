@@ -1,7 +1,7 @@
 import unittest
 from dyda.components.determinator import DeterminatorByAggregatedDataSingle
 from dt42lab.utility import dict_comparator
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 
 
 class TestDeterminatorByAggregatedDataSingle(unittest.TestCase):

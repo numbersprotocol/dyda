@@ -1,6 +1,6 @@
 import copy
-from dt42lab.core import tinycv
-from dt42lab.core import lab_tools
+from dyda_utils import tinycv
+from dyda_utils import lab_tools
 from dyda.core import validator_base
 
 

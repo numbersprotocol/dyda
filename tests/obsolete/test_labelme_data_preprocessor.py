@@ -3,9 +3,9 @@ import sys
 import unittest
 import tarfile
 import requests
-from dt42lab.core import image
-from dt42lab.core import tools
-from dt42lab.core import lab_tools
+from dyda_utils import image
+from dyda_utils import tools
+from dyda_utils import lab_tools
 from dt42lab.utility import dict_comparator
 from dyda.components import labelme_data_preprocessor as preprocessor
 

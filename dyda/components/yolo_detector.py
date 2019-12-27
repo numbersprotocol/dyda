@@ -14,7 +14,7 @@ from ctypes import RTLD_GLOBAL
 from ctypes import POINTER
 from os.path import join as pjoin
 
-from dt42lab.core import lab_tools
+from dyda_utils import lab_tools
 from dyda.core import detector_base
 
 

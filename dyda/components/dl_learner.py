@@ -3,8 +3,8 @@ import sys
 import subprocess
 import tempfile
 from shutil import copyfile
-from dt42lab.core import tools
-from dt42lab.core import image
+from dyda_utils import tools
+from dyda_utils import image
 from dyda.core import learner_base
 
 

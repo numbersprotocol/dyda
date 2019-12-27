@@ -1,6 +1,6 @@
 import os
-from dt42lab.core import tools
-from dt42lab.core import data
+from dyda_utils import tools
+from dyda_utils import data
 from dyda.core import dyda_base
 
 

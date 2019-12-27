@@ -1,8 +1,8 @@
 import os
 import copy
-from dt42lab.core import data
-from dt42lab.core import tools
-from dt42lab.core import boxes
+from dyda_utils import data
+from dyda_utils import tools
+from dyda_utils import boxes
 from dyda.core import propagator_base
 
 

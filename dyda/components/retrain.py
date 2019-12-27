@@ -113,7 +113,7 @@ from tensorflow.python.platform import gfile
 from tensorflow.python.util import compat
 
 import copy
-from dt42lab.core import tools
+from dyda_utils import tools
 
 FLAGS = None
 
