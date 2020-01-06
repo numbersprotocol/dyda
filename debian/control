@@ -25,3 +25,9 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: DT42 research team dyda library and applications
  Dyda library and applications released by DT42 research team.
+
+Package: pipeline-config-aikea
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: DT42 research team dyda library and applications
+ Dyda library and applications released by DT42 research team.
