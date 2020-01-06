@@ -1,5 +1,3 @@
 dyda/pipelines/configs/object_counting_mobilenet-ssd.config /etc/dyda/pipelines/configs
-dyda/pipelines/configs/object_counting_mobilenet-ssd_debug.config /etc/dyda/pipelines/configs
 dyda/pipelines/configs/object_counting_mobilenet-ssd_cpu.config /etc/dyda/pipelines/configs
-dyda/pipelines/configs/object_counting_mobilenet-ssd_cpu_debug.config /etc/dyda/pipelines/configs
 

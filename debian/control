@@ -12,28 +12,16 @@ Package: dyda
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: DT42 research team dyda library and applications
- Trainer library and applications released by DT42 research team.
+ Dyda library and applications released by DT42 research team.
 
 Package: pipeline-config-object-counting-mobilenet-ssd-with-cpu
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: DT42 research team dyda library and applications
- Trainer library and applications released by DT42 research team.
+ Dyda library and applications released by DT42 research team.
 
 Package: pipeline-config-object-detection-and-tracking
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: DT42 research team dyda library and applications
- Trainer library and applications released by DT42 research team.
-
-Package: pipeline-config-object-detection-and-tracking-with-lpr
-Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: DT42 research team dyda library and applications
- Trainer library and applications released by DT42 research team.
-
-Package: pipeline-config-object-counting-4-channels-acamar-v4
-Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: DT42 research team dyda library and applications
- Trainer library and applications released by DT42 research team.
+ Dyda library and applications released by DT42 research team.
