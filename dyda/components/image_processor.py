@@ -30,17 +30,18 @@ class RotateImageProcessor(image_processor_base.ImageProcessorBase):
     def main_process(self):
         """ define main_process of dyda component """
         self.output_data = copy.deepcopy(self.input_data)
-        self.results = []
+        pack = False
         if not isinstance(self.output_data, list):
             self.output_data = [self.output_data]
+            pack = False
 
         for i in range(0, len(self.output_data)):
             data_matrix = self.output_data[i]
-            self.output_data[i] = tinycv.rotate_ccw(
+            self.output_data[i] = tinycv.rotate_ccw_opencv(
                 self.output_data[i], direction=self.rot_direction
             )
 
-        if self.unpack_single_list:
+        if self.unpack_single_list or pack:
             self.unpack_single_output()
 
 
