@@ -29,11 +29,9 @@ class RotateImageProcessor(image_processor_base.ImageProcessorBase):
 
     def main_process(self):
         """ define main_process of dyda component """
-        self.output_data = copy.deepcopy(self.input_data)
-        pack = False
-        if not isinstance(self.output_data, list):
-            self.output_data = [self.output_data]
-            pack = False
+
+        input_data = self.uniform_input()
+        self.output_data = input_data
 
         for i in range(0, len(self.output_data)):
             data_matrix = self.output_data[i]
@@ -41,8 +39,7 @@ class RotateImageProcessor(image_processor_base.ImageProcessorBase):
                 self.output_data[i], direction=self.rot_direction
             )
 
-        if self.unpack_single_list or pack:
-            self.unpack_single_output()
+        self.uniform_output()
 
 
 class DirAlignImageProcessor(image_processor_base.ImageProcessorBase):
