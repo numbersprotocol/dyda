@@ -1,16 +1,10 @@
-import os
-import cv2
 import sys
 import copy
 import numpy as np
 import traceback
-import statistics
-import operator
-from scipy.stats import mode
 from dyda_utils import tinycv
 from dyda_utils import tools
 from dyda_utils import lab_tools
-from dyda_utils import image
 from dyda_utils import pandas_data
 from dyda.core import determinator_base
 
@@ -380,7 +374,7 @@ class DeterminatorSelAnnoInGivenInterval(determinator_base.DeterminatorBase):
             # only drop results it the format match
             if not lab_tools.is_lab_format(result):
                 continue
-            if len(result["annotations"]) > 0:
+            if result["annotations"]:
                 diff = self.counter - self.previous
                 if self.previous < 0 or diff >= self.interval:
                     self.previous = self.counter
@@ -424,7 +418,7 @@ class DeterminatorTargetLabel(determinator_base.DeterminatorBase):
         self.output_data = not self.output_flag
         for data in input_data:
             self.results.append(self.extract_target(data))
-            if len(self.results[-1]['annotations']) > 0:
+            if self.results[-1]['annotations']:
                 # self.output_data is true if the label is found in
                 # any of the list component
                 self.output_data = self.output_flag
