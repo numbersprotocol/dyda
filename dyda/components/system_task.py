@@ -1,8 +1,50 @@
 import os
+import sys
+import cv2
 import tempfile
 import shutil
 from dyda_utils import tools
 from dyda.core import system_task_base
+
+
+class Frame2VideoProcessor(system_task_base.SystemTaskBase):
+    """ Convert frames to videos
+    """
+
+    def __init__(self, dyda_config_path=''):
+        """ Initialization function of dyda component. """
+
+        super(Frame2VideoProcessor, self).__init__(
+            dyda_config_path=dyda_config_path
+        )
+        self.set_param(self.class_name)
+
+        filename = "output.avi"
+        if "filename" in self.param.keys():
+            filename = self.param["filename"]
+        if filename[-3:] != "avi":
+            self.logger.error("please save as avi format")
+            sys.exit(0)
+
+        self.check_snapshot_folder()
+
+        self.out_path = os.path.join(self.snapshot_folder, filename)
+
+    def main_process(self):
+        """ Main function of dyda component. """
+
+        # all input_data should come from the same source and
+        # with the same height and width
+        height, width, layers = self.input_data[0].shape
+        size = (width, height)
+        out = cv2.VideoWriter(
+            self.out_path, cv2.VideoWriter_fourcc(*'DIVX'), 15, size
+        )
+        for i in range(len(self.input_data)):
+            out.write(self.input_data[i])
+        out.release()
+
+        self.results = {"output_file": self.out_path}
 
 
 class CreateSymbolicLinkTask(system_task_base.SystemTaskBase):
