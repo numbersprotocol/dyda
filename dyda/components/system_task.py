@@ -9,6 +9,7 @@ from dyda.core import system_task_base
 
 class Frame2VideoProcessor(system_task_base.SystemTaskBase):
     """ Convert frames to videos
+        Note: the current version only support one video output at a time
     """
 
     def __init__(self, dyda_config_path=''):
