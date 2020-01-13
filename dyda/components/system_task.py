@@ -20,23 +20,23 @@ class Frame2VideoProcessor(system_task_base.SystemTaskBase):
         )
         self.set_param(self.class_name)
 
-        filename = "output.avi"
+        self.filename = "output.avi"
         if "filename" in self.param.keys():
-            filename = self.param["filename"]
-        if filename[-3:] != "avi":
+            self.filename = self.param["filename"]
+        if self.filename[-3:] != "avi":
             self.logger.error("please save as avi format")
             sys.exit(0)
 
-        self.check_snapshot_folder()
-
-        self.out_path = os.path.join(self.snapshot_folder, filename)
 
     def main_process(self):
         """ Main function of dyda component. """
 
         # all input_data should come from the same source and
         # with the same height and width
+        tools.check_dir(self.snapshot_folder)
+        self.out_path = os.path.join(self.snapshot_folder, self.filename)
         height, width, layers = self.input_data[0].shape
+
         size = (width, height)
         out = cv2.VideoWriter(
             self.out_path, cv2.VideoWriter_fourcc(*'DIVX'), 15, size
