@@ -181,10 +181,10 @@ class PatchSysInfoImageProcessor(image_processor_base.ImageProcessorBase):
         img_height = img_array.shape[0]
 
         key_to_patch = ""
+        counter = -1
         for key in result.keys():
             if key not in self.keys_to_patch:
                 continue
-            counter = -1
             if counter < 0:
                 key_to_patch = str(key) + ":" + "{}".format(result[key])
                 counter = counter + 1
