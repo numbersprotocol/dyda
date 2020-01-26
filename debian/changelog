@@ -1,3 +1,15 @@
+dyda (1.40.2+20200117) xenial; urgency=medium
+
+  * AIKEA beta5.
+
+ -- Bofu Chen (bafu) <bofu@dt42.io>  Fri, 17 Jan 2020 11:34:39 +0800
+
+dyda (1.40.2+20200110) xenial; urgency=medium
+
+  * AIKEA beta2.
+
+ -- Bofu Chen (bafu) <bofu@dt42.io>  Fri, 10 Jan 2020 05:58:52 -1000
+
 dyda (1.40.2+20190911) xenial; urgency=medium
 
   * modify model path in object_detection_and_tracking_with_lpr.config

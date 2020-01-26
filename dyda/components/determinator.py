@@ -1,16 +1,10 @@
-import os
-import cv2
 import sys
 import copy
 import numpy as np
 import traceback
-import statistics
-import operator
-from scipy.stats import mode
 from dyda_utils import tinycv
 from dyda_utils import tools
 from dyda_utils import lab_tools
-from dyda_utils import image
 from dyda_utils import pandas_data
 from dyda.core import determinator_base
 
@@ -347,6 +341,49 @@ class DeterminatorByDynamicRoi(DeterminatorByRoi):
         return data
 
 
+class DeterminatorSelAnnoInGivenInterval(determinator_base.DeterminatorBase):
+    """
+       Select annotations in the given interval and only output one.
+       ::input_data::results
+       ::output_data::results
+    """
+
+    def __init__(self, dyda_config_path='', param=None):
+        """ Initialization function of dyda component. """
+
+        super(DeterminatorSelAnnoInGivenInterval, self).__init__(
+            dyda_config_path=dyda_config_path
+        )
+        class_name = self.__class__.__name__
+        self.set_param(class_name, param=param)
+
+        self.interval = 5
+        if 'interval' in self.param.keys():
+            self.interval = int(self.param['interval'])
+        self.counter = 0
+        self.previous = -1
+
+    def main_process(self):
+        """ Main function of dyda component. """
+
+        input_data = self.uniform_input()
+        self.results = []
+
+        for result in input_data:
+            self.results.append(result)
+            # only drop results it the format match
+            if not lab_tools.is_lab_format(result):
+                continue
+            if result["annotations"]:
+                diff = self.counter - self.previous
+                if self.previous < 0 or diff >= self.interval:
+                    self.previous = self.counter
+                else:
+                    # clear annotations if within specified interval
+                    self.results[-1]["annotations"] = []
+        self.counter += 1
+
+
 class DeterminatorTargetLabel(determinator_base.DeterminatorBase):
     """The detected object in the input inferencer result is
        left if the label is in target list.
@@ -381,7 +418,7 @@ class DeterminatorTargetLabel(determinator_base.DeterminatorBase):
         self.output_data = not self.output_flag
         for data in input_data:
             self.results.append(self.extract_target(data))
-            if len(self.results[-1]['annotations']) > 0:
+            if self.results[-1]['annotations']:
                 # self.output_data is true if the label is found in
                 # any of the list component
                 self.output_data = self.output_flag

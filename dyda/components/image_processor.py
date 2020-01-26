@@ -5,11 +5,43 @@ from dyda_utils import image
 from dyda_utils import lab_tools
 from dyda_utils import tinycv
 from dyda.core import image_processor_base
-from dyda.components import data_converter
+
+
+class RotateImageProcessor(image_processor_base.ImageProcessorBase):
+    """ Simple image rotate processor """
+
+    def __init__(self, dyda_config_path=''):
+        """ __init__ of RotateImageProcessor """
+
+        super(RotateImageProcessor, self).__init__(
+            dyda_config_path=dyda_config_path
+        )
+        self.set_param(self.class_name)
+
+        self.rot_direction = "ccw"
+        if "rot_direction" in self.param.keys():
+            self.rot_direction = self.param["rot_direction"]
+        if self.rot_direction not in ["cw", "ccw"]:
+            self.logger.error(
+                "Wrong direction, should be cw or ccw"
+            )
+
+    def main_process(self):
+        """ define main_process of dyda component """
+
+        input_data = self.uniform_input()
+        self.output_data = input_data
+
+        for i in range(0, len(self.output_data)):
+            self.output_data[i] = tinycv.rotate_ccw_opencv(
+                self.output_data[i], direction=self.rot_direction
+            )
+
+        self.uniform_output()
 
 
 class DirAlignImageProcessor(image_processor_base.ImageProcessorBase):
-    """  """
+    """ allign all images to the specified direction """
 
     def __init__(self, dyda_config_path=''):
         """ __init__ of DirAlignImageProcessor """

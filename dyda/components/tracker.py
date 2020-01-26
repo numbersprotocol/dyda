@@ -70,7 +70,9 @@ class TrackerSimple(tracker_base.TrackerBase):
     def register(self, obj, objs_track):
         """ Register new objects. """
 
-        obj['track_id'] = self.track_id
+        # WORKAROUND: "% 1000" is for fixing AIKEA pipeline not working issue.
+        #             Need to remove it and find a better solution.
+        obj['track_id'] = self.track_id % 1000
         objs_track.append(copy.deepcopy(obj))
         objs_track[-1]['missing_frame'] = 0
         self.track_id += 1
