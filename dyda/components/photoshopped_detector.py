@@ -6,8 +6,10 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 import numpy as np
+from dyda_utils import lab_tools
 from PIL import Image
 from dyda.core import image_processor_base
+from dyda.core import detector_base
 torch.backends.cudnn.benchmark = True
 """This componet is almost modfied from
    https://github.com/PeterWang512/FALdetector"""
@@ -280,6 +282,130 @@ class DRNSeg(nn.Module):
             w[c, 0, :, :] = w[0, 0, :, :]
 
 
+class DRNSub(nn.Module):
+    def __init__(self, num_classes, pretrained_model=None, fix_base=False):
+        super(DRNSub, self).__init__()
+
+        drnseg = DRNSeg(2)
+        if pretrained_model:
+            print(
+                "loading the pretrained drn model from %s" %
+                pretrained_model)
+            state_dict = torch.load(pretrained_model, map_location='cpu')
+            drnseg.load_state_dict(state_dict['model'])
+
+        self.base = drnseg.base
+        if fix_base:
+            for param in self.base.parameters():
+                param.requires_grad = False
+
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.fc = nn.Linear(512, num_classes)
+
+    def forward(self, x):
+        x = self.base(x)
+        x = self.avgpool(x)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        return x
+
+
+class PhotoshoppedFaceDetector(detector_base.DetectorBase):
+    """ Detector photoshopped face
+
+        input: IMAGE_OF_FACE, or LIST_OF_IMAGE_OF_FACE
+             => np.array, or [np.array, np.array, ....]
+
+        output: IMAGE_OF_FACE, or LIST_OF_IMAGE_OF_FACE
+             => np.array, or [np.array, np.array, ....]
+
+        @param model_path: the path of torch model .pth
+
+        @param gpu_id: the id of gpu wanted to use
+
+    """
+
+    def __init__(self, dyda_config_path='', param=None):
+        """ Initialization function of dyda component.
+
+        """
+
+        super(PhotoshoppedFaceDetector, self).__init__(
+            dyda_config_path=dyda_config_path
+        )
+        class_name = self.__class__.__name__
+        self.set_param(class_name, param=param)
+
+        self.model_path = self.param["model_path"]
+
+        if "gpu_id" in self.param.keys():
+            gpu_id = self.param["gpu_id"]
+        else:
+            gpu_id = -1
+
+        if torch.cuda.is_available() and gpu_id != -1:
+            self.device = 'cuda:{}'.format(gpu_id)
+        else:
+            self.device = 'cpu'
+
+        self.model = DRNSub(1)
+        state_dict = torch.load(self.model_path, map_location='cpu')
+        self.model.load_state_dict(state_dict['model'])
+        self.model.to(self.device)
+        self.model.device = self.device
+        self.model.eval()
+
+        self.tf = transforms.Compose([transforms.ToTensor(),
+                                      transforms.Normalize(
+                                      mean=[0.485, 0.456, 0.406],
+                                      std=[0.229, 0.224, 0.225])])
+
+    def main_process(self):
+        """ Main function of dyda component. """
+
+        self.reset_output()
+        self.input_data = self.uniform_input()
+
+        for input_img in self.input_data:
+
+            im_w = input_img.shape[1]
+            im_h = input_img.shape[0]
+
+            input_img = Image.fromarray(cv2.cvtColor(input_img,
+                                                     cv2.COLOR_BGR2RGB))
+            face = self.resize_shorter_side(input_img, 400)[0]
+            face_tens = self.tf(face).to(self.device)
+
+            # Prediction
+            with torch.no_grad():
+                prob = self.model(face_tens.unsqueeze(0)
+                                  )[0].sigmoid().cpu().item()
+            results = lab_tools.output_pred_detection("", "")
+            results["photoshopped_prob"] = prob
+
+            self.results.append(results)
+        self.uniform_output()
+
+    def resize_shorter_side(self, img, min_length):
+        """
+        Resize the shorter side of img to min_length while
+        preserving the aspect ratio.
+        """
+        ow, oh = img.size
+        mult = 8
+        if ow < oh:
+            if ow == min_length and oh % mult == 0:
+                return img, (ow, oh)
+            w = min_length
+            h = int(min_length * oh / ow)
+        else:
+            if oh == min_length and ow % mult == 0:
+                return img, (ow, oh)
+            h = min_length
+            w = int(min_length * ow / oh)
+        return img.resize((w, h), Image.BICUBIC), (w, h)
+
+
 class PhotoshoppedFaceReverser(image_processor_base.ImageProcessorBase):
     """ Reverse photoshopped face
 
@@ -311,17 +437,17 @@ class PhotoshoppedFaceReverser(image_processor_base.ImageProcessorBase):
         self.model_path = self.param["model_path"]
 
         if "gpu_id" in self.param.keys():
-            self.gpu_id = self.param["gpu_id"]
+            gpu_id = self.param["gpu_id"]
         else:
-            self.gpu_id = "0"
+            gpu_id = -1
 
         if "return_heatmap" in self.param.keys():
             self.return_heatmap = self.param["return_heatmap"]
         else:
             self.return_heatmap = False
 
-        if torch.cuda.is_available():
-            self.device = 'cuda:{}'.format(self.gpu_id)
+        if torch.cuda.is_available() and gpu_id != -1:
+            self.device = 'cuda:{}'.format(gpu_id)
         else:
             self.device = 'cpu'
 
