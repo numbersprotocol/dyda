@@ -37,19 +37,24 @@ class FbPostsBase(dyda_base.TrainerBase):
         return pd.DataFrame(columns=self.define_columns)
 
     def return_results_sample(self):
-        return {"filename":"", "folder":"", "timestamp":"", 
-                "sha256sum":"", "annotations":{}}
+        return {
+            "data_owner": "",
+            "filename": "",
+            "folder": "",
+            "timestamp": "",
+            "sha256sum": "",
+            "annotations": {}}
 
     def check_columns(self, to_check):
-        """ 
-        check the to_check is DataFrame with defined columns or 
+        """
+        check the to_check is DataFrame with defined columns or
         a list of DataFrame with defined columns
         """
 
         if isinstance(to_check, list):
             is_df = [isinstance(i, pd.DataFrame) for i in to_check]
             if all(is_df):
-                if all([set(i.columns) == set(self.define_columns) \
+                if all([set(i.columns) == set(self.define_columns)
                         for i in to_check]):
                     return True
                 else:
@@ -62,4 +67,4 @@ class FbPostsBase(dyda_base.TrainerBase):
             else:
                 return False
         else:
-            return False 
+            return False
