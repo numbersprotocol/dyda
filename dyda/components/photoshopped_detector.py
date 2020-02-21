@@ -323,6 +323,10 @@ class PhotoshoppedFaceDetector(detector_base.DetectorBase):
 
         @param gpu_id: the id of gpu wanted to use
 
+        @param conf_thre: the threshold of confidence. If
+             "photoshopped_prob" is bigger than this value,
+             in verifications return "Mismatched."
+
     """
 
     def __init__(self, dyda_config_path='', param=None):
@@ -347,6 +351,11 @@ class PhotoshoppedFaceDetector(detector_base.DetectorBase):
             self.device = 'cuda:{}'.format(gpu_id)
         else:
             self.device = 'cpu'
+
+        if "conf_thre" in self.param.keys():
+            self.conf_thre = self.param["conf_thre"]
+        else:
+            self.conf_thre = 0.3
 
         self.model = DRNSub(1)
         state_dict = torch.load(self.model_path, map_location='cpu')
@@ -381,8 +390,12 @@ class PhotoshoppedFaceDetector(detector_base.DetectorBase):
                 prob = self.model(face_tens.unsqueeze(0)
                                   )[0].sigmoid().cpu().item()
             results = lab_tools.output_pred_detection("", "")
-            results["photoshopped_prob"] = prob
-
+            results["verifications"] = []
+            results["verifications"].append({
+                "type": "photoshopped_face",
+                "confidence": prob,
+                "result": "Passed" if prob <= self.conf_thre else "Mismatched"
+            })
             self.results.append(results)
         self.uniform_output()
 
@@ -419,7 +432,7 @@ class PhotoshoppedFaceReverser(image_processor_base.ImageProcessorBase):
 
         @param gpu_id: the id of gpu wanted to use
 
-        @param return heatmap: does return the heatmap of
+        @param return_heatmap: does return the heatmap of
          photoshop trace
     """
 
