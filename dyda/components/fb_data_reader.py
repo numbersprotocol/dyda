@@ -7,6 +7,10 @@ from dyda.core import data_reader_base
 class FbYourPostsJsonReader(data_reader_base.DataReaderBase):
     """Read in your_posts*.json from the facebook data folder.
 
+        input: PATH_OF_FOLDER, or LIST_OF_PATH_OF_PATH
+
+        output: JSON_LIKE_DICT, or LIST_OF_JSON_LIKE_DICT
+
     """
 
     def __init__(self, dyda_config_path="", param=None):

@@ -3,15 +3,13 @@ from dyda.core import dyda_base
 
 
 class FbPostsBase(dyda_base.TrainerBase):
-    """ Base class of detector """
+    """ Base class of fb posts """
 
     def __init__(self, dyda_config_path=''):
-        """ Init function of DetectorBase """
+        """ Init function of FbPostsBase """
         super(FbPostsBase, self).__init__(
             dyda_config_path=dyda_config_path
         )
-        # Note: results is a list of output from
-        #       lab_tools.output_pred_detection
         self.results = []
         self.define_columns = ['post_id',
                                'timestamp',
@@ -34,6 +32,7 @@ class FbPostsBase(dyda_base.TrainerBase):
         self.output_data = []
 
     def return_output_data_sample(self):
+        """ return the empty DataFrame with defined columns"""
         return pd.DataFrame(columns=self.define_columns)
 
     def return_results_sample(self):

@@ -11,6 +11,10 @@ class FbYourPostsJsonConverter(fb_posts_base.FbPostsBase):
     """Extract wanted data from input json,
        and convert it into DataFrame
 
+       input: JSON_LIKE_DICT, or JSON_LIKE_DICT
+
+       output: pd.DataFrame, or list of pd.DataFrame
+
     """
 
     def __init__(self, dyda_config_path="", param=None):
@@ -51,7 +55,18 @@ class FbYourPostsJsonConverter(fb_posts_base.FbPostsBase):
 
 
 class FBPostsDataSelector(fb_posts_base.FbPostsBase):
-    """ Get FB post data in the specified period """
+    """ Get FB post data in the specified period
+
+        input: pd.DataFrame, or list of pd.DataFrame
+
+        output: pd.DataFrame, or list of pd.DataFrame
+
+        @param post_start_timestamp: the minimum timestamp
+            of selected df
+
+        @param post_end_timestamp: the maximum timestamp
+            of selected df
+    """
 
     def __init__(self, param=None,
                  dyda_config_path=""):
@@ -63,13 +78,13 @@ class FBPostsDataSelector(fb_posts_base.FbPostsBase):
         class_name = self.__class__.__name__
         self.set_param(class_name, param=param)
 
-        self.start_timestamp = None
+        self.post_start_timestamp = None
         if "post_start_timestamp" in self.param.keys():
-            self.post_start_timestamp = self.param["start_timestamp"]
+            self.post_start_timestamp = self.param["post_start_timestamp"]
 
-        self.end_timestamp = None
+        self.post_end_timestamp = None
         if "post_end_timestamp" in self.param.keys():
-            self.post_end_timestamp = self.param["end_timestamp"]
+            self.post_end_timestamp = self.param["post_end_timestamp"]
 
     def main_process(self):
         """ main process of dyda component """
@@ -84,15 +99,29 @@ class FBPostsDataSelector(fb_posts_base.FbPostsBase):
                 self.terminate_flag = True
                 break
 
-            if self.start_timestamp is not None:
+            if self.post_start_timestamp is not None:
                 df = df[df['timestamp'] >= self.post_start_timestamp]
-            if self.end_timestamp is not None:
+            if self.post_end_timestamp is not None:
                 df = df[df['timestamp'] <= self.post_end_timestamp]
             self.output_data.append(df)
 
 
 class FbPostSentimentAnalyzer(fb_posts_base.FbPostsBase):
     """ Calculate the sentiment score of post
+
+        input: pd.DataFrame, or a list of pd.DataFrame
+
+        output: pd.DataFrame, or a list of pd.DataFrame,
+               with sentiment score of each post in "dyda_column."
+                And we store the score of whole DataFrame in results.
+
+        @param sentiment_api_key: the api key of sentiment api
+
+        @param norm_min: the minimum value of normalized sentiment score
+
+        @param norm_max: the maximum value of normalized sentiment score
+
+        @param cutoff_low_scale: the fraction of cutoff low
     """
 
     def __init__(self, param=None,
