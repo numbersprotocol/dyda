@@ -1,0 +1,38 @@
+dyda for Debian
+------------------------------------------
+
+This package uses gbp with DEP14 process.
+
+## To get a released .orig.tar.gz
+
+We don't use pristine-tar to keep a tarball in git.
+We also don't have an upstream branch.
+To get the source tarball, we can use "origtargz".
+This means we need to have a version tag on github for a release.
+
+## To build the package, please use the following command
+
+ * gbp buildpackage --git-no-pristine-tar --git-upstream-tag=<tag>
+
+ For example:
+
+ * gbp buildpackage --git-no-pristine-tar --git-upstream-tag=master
+ * gbp buildpackage --git-no-pristine-tar --git-upstream-tag=v1.40.2+20200117
+
+## To build a development package.
+
+First, rebase debian/sid onto any development branch. For example, develop
+
+ * git checkout debian/sid
+ * git rebase develop
+
+Make sure you don't have any orig.tar.gz on upper layer. Because we'll
+create one.
+
+ * rm ../*.orig.tar.gz
+
+Then build the package
+
+ * gbp buildpackage --git-no-pristine-tar --git-upstream-tag=develop
+
+ -- Ying-Chun Liu (PaulLiu) <paulliu@debian.org>  Sun, 01 Nov 2020 11:27:19 +0800
