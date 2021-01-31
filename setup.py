@@ -6,7 +6,7 @@ from setuptools import find_packages
 
 setup(
     name='dyda',
-    version='1.40.2+20190911',
+    version='1.41.0',
     description='Dyda library and application',
     long_description=
         'TBD',
