@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dyda
-Source: http://dt42.io
+Source: https://github.com/numbersprotocol/dyda
 
 Files: *
 Copyright: 2017 DT42
@@ -8,6 +8,7 @@ License: BSD-3-Clause
 
 Files: debian/*
 Copyright: 2017 Tammy Yang <tammy@dt42.io>
+           2021 Ying-Chun Liu (PaulLiu) <paulliu@debian.org>
 License: BSD-3-Clause
 
 License: BSD-3-Clause

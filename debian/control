@@ -6,14 +6,17 @@ Build-Depends: debhelper (>= 10),
                dh-python,
                python3 (>= 3.4),
                python3-setuptools (>= 3.0)
-Standards-Version: 3.9.5
+Standards-Version: 4.5.0
 Homepage: http://dt42.io
 
 Package: python3-dyda
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}, ${shlibs:Depends}
-Description: DT42 research team dyda library and applications
- Dyda library and applications released by DT42 research team.
+Description: dynamic data pipeline framework for DT42 applications
+ dyda is a library provides dynamic data pipeline framework. By using the
+ framework applications can configure a pipe based on configuration files.
+ And users can change the pipeline by modifying the configuration files
+ without touching any code.
 
 Package: pipeline-config-object-counting-mobilenet-ssd-with-cpu
 Architecture: all
