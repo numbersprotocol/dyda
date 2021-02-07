@@ -129,7 +129,7 @@ class PatchSysInfoImageProcessor(image_processor_base.ImageProcessorBase):
         if "patch_external_meta_roi" in self.param.keys():
             self.patch_meta_roi = self.param["patch_external_meta_roi"]
 
-        self.company_info = "All right reserved. DT42 confidencial"
+        self.company_info = ""
         if "company_info" in self.param.keys():
             self.company_info = self.param["company_info"]
 
